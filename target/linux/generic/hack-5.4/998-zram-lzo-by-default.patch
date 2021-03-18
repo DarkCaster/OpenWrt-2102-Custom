@@ -1,0 +1,12 @@
+diff -uprN linux-5.4.105.old/drivers/block/zram/zram_drv.c linux-5.4.105/drivers/block/zram/zram_drv.c
+--- linux-5.4.105.old/drivers/block/zram/zram_drv.c	2021-03-11 16:06:51.000000000 +0300
++++ linux-5.4.105/drivers/block/zram/zram_drv.c	2021-03-19 00:28:02.135837369 +0300
+@@ -41,7 +41,7 @@ static DEFINE_IDR(zram_index_idr);
+ static DEFINE_MUTEX(zram_index_mutex);
+ 
+ static int zram_major;
+-static const char *default_compressor = "lzo-rle";
++static const char *default_compressor = "lzo";
+ 
+ /* Module params (documentation at end) */
+ static unsigned int num_devices = 1;
