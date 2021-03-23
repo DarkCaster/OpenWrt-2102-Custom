@@ -1,0 +1,11 @@
+diff -uprN linux-5.4.105.old/net/core/flow_dissector.c linux-5.4.105/net/core/flow_dissector.c
+--- linux-5.4.105.old/net/core/flow_dissector.c	2021-03-11 16:06:51.000000000 +0300
++++ linux-5.4.105/net/core/flow_dissector.c	2021-03-24 00:06:32.959017210 +0300
+@@ -955,7 +955,6 @@ bool __skb_flow_dissect(const struct net
+ 		}
+ 	}
+ 
+-	WARN_ON_ONCE(!net);
+ 	if (net) {
+ 		rcu_read_lock();
+ 		attached = rcu_dereference(net->flow_dissector_prog);
