@@ -1,0 +1,12 @@
+diff -uprN backports-5.10.16-1.old/net/mac80211/tx.c backports-5.10.16-1/net/mac80211/tx.c
+--- backports-5.10.16-1.old/net/mac80211/tx.c	2021-02-14 22:40:42.000000000 +0300
++++ backports-5.10.16-1/net/mac80211/tx.c	2021-03-27 00:50:05.289070141 +0300
+@@ -952,7 +952,7 @@ ieee80211_tx_h_fragment(struct ieee80211
+ 	 * This scenario is handled in ieee80211_tx_prepare but extra
+ 	 * caution taken here as fragmented ampdu may cause Tx stop.
+ 	 */
+-	if (WARN_ON(info->flags & IEEE80211_TX_CTL_AMPDU))
++	if (!!(info->flags & IEEE80211_TX_CTL_AMPDU))
+ 		return TX_DROP;
+ 
+ 	hdrlen = ieee80211_hdrlen(hdr->frame_control);
