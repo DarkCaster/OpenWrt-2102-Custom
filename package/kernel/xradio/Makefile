@@ -16,8 +16,8 @@ include $(INCLUDE_DIR)/kernel.mk
 include $(INCLUDE_DIR)/package.mk
 
 define KernelPackage/xradio
-  SUBMENU:=Wireless Drivers Test-xr819
-  TITLE:=Xradio xr819 test wifi-drivers support
+  SUBMENU:=Wireless Drivers
+  TITLE:=Xradio xr819 driver for OrangePI zero
   DEPENDS:=@TARGET_sunxi +kmod-mac80211
   FILES:=$(PKG_BUILD_DIR)/xradio_wlan.ko
   AUTOLOAD:=$(call AutoProbe,xradio_wlan)
