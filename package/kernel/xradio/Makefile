@@ -12,6 +12,8 @@ PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/fifteenhex/xradio.git
 PKG_SOURCE_VERSION=6bf0e2e21c80456e2a3d4ad1267caecde7165871
 
+STAMP_CONFIGURED_DEPENDS := $(STAGING_DIR)/usr/include/mac80211-backport/backport/autoconf.h
+
 include $(INCLUDE_DIR)/kernel.mk
 include $(INCLUDE_DIR)/package.mk
 
@@ -24,6 +26,7 @@ define KernelPackage/xradio
 endef
 
 NOSTDINC_FLAGS = \
+	$(KERNEL_NOSTDINC_FLAGS) \
 	-I$(PKG_BUILD_DIR) \
 	-I$(PKG_BUILD_DIR)/include \
 	-I$(STAGING_DIR)/usr/include/mac80211-backport \
